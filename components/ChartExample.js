@@ -21,41 +21,6 @@ ChartJS.register(
   Legend
 )
 
-export const options = {
-  responsive: true,
-  interaction: {
-    mode: 'index',
-    intersect: false,
-  },
-  stacked: false,
-  plugins: {
-    title: {
-      display: true,
-
-      text: 'Wishbone chair',
-    },
-  },
-  scales: {
-    y: {
-      type: 'linear',
-      display: true,
-      position: 'left',
-    },
-    y1: {
-      type: 'linear',
-      display: true,
-      position: 'right',
-      grid: {
-        drawOnChartArea: false,
-      },
-      ticks: {
-        // forces step size to be 50 units
-        stepSize: 1,
-      },
-    },
-  },
-}
-
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
 export const data = {
   labels,
@@ -81,7 +46,43 @@ export const data = {
   ],
 }
 
-export default function ChartExample({ sku = 'wishbone', dataSource }) {
+export default function ChartExample({ product, dataSource }) {
+  const sku = product?.sku || 'wishbone'
+  const name = product?.name || 'wishbone'
+  const options = {
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    stacked: false,
+    plugins: {
+      title: {
+        display: true,
+
+        text: name,
+      },
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        display: true,
+        position: 'left',
+      },
+      y1: {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        grid: {
+          drawOnChartArea: false,
+        },
+        ticks: {
+          // forces step size to be 50 units
+          stepSize: 1,
+        },
+      },
+    },
+  }
   const ordersBySku = useMemo(
     () =>
       dataSource

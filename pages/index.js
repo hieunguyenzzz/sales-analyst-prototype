@@ -100,7 +100,7 @@ export default function Home() {
         </div>{' '}
         <div className="p-6 pb-16">
           <div className="flex flex-col items-center justify-center gap-6">
-            <ChartExample sku={product?.sku} dataSource={datasource} />
+            <ChartExample product={product} dataSource={datasource} />
           </div>
         </div>
       </div>
