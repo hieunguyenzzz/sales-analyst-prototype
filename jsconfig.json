@@ -1,0 +1,15 @@
+{
+  
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@components/*": ["components/*"],
+        "@utils/*": ["utils/*"]
+      }
+    },
+    
+    "include": ["**/*.ts", "**/*.js"],
+    "exclude": ["node_modules"],
+    
+  }
+  
