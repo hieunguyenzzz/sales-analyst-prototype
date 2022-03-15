@@ -13,14 +13,14 @@ export default function Home() {
       .then((result) => setDatasource(result.data))
   }, [])
   return (
-    <div className="drawer-mobile drawer h-screen bg-base-100">
+    <div className="h-screen drawer-mobile drawer bg-base-100">
       <input id="drawer" type="checkbox" className="drawer-toggle" />{' '}
       <div
         className="drawer-content"
         style={{ scrollBehavior: 'smooth', scrollPaddingTop: '5rem' }}
       >
-        <div className="sticky top-0 z-30 flex h-16 w-full justify-center bg-base-100 bg-opacity-90 text-base-content backdrop-blur transition-all duration-100">
-          <nav className="navbar w-full">
+        <div className="sticky top-0 z-30 flex justify-center w-full h-16 transition-all duration-100 bg-base-100 bg-opacity-90 text-base-content backdrop-blur">
+          <nav className="w-full navbar">
             <div className="flex flex-1 md:gap-1 lg:gap-2">
               <span
                 className="tooltip tooltip-bottom before:text-xs before:content-[attr(data-tip)]"
@@ -36,7 +36,7 @@ export default function Home() {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    className="inline-block h-5 w-5 stroke-current md:h-6 md:w-6"
+                    className="inline-block w-5 h-5 stroke-current md:h-6 md:w-6"
                   >
                     <path
                       strokeLinecap="round"
@@ -49,12 +49,12 @@ export default function Home() {
               </span>{' '}
               <div className="flex items-center gap-2 lg:hidden">
                 <a
-                  href="/"
+                  href="#"
                   aria-current="page"
                   aria-label="Homepage"
-                  className="flex-0 btn btn-ghost px-2 "
+                  className="px-2 flex-0 btn btn-ghost "
                 >
-                  <div className="font-title inline-flex text-lg text-primary transition-all duration-200 md:text-3xl">
+                  <div className="inline-flex text-lg transition-all duration-200 font-title text-primary md:text-3xl">
                     <span className="lowercase text-primary">Store</span>{' '}
                     <span className="uppercase text-base-content">APP</span>
                   </div>
@@ -63,7 +63,7 @@ export default function Home() {
               <div className="hidden w-full max-w-sm lg:flex">
                 <label
                   htmlFor="drawer-search"
-                  className="searchbox relative mx-3 w-full"
+                  className="relative w-full mx-3 searchbox"
                 >
                   <form data-svelte-search className="pointer-events-none">
                     <div className="form-control">
@@ -76,7 +76,7 @@ export default function Home() {
                         <button className="btn btn-square">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
+                            className="w-6 h-6"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -95,25 +95,7 @@ export default function Home() {
                 </label>
               </div>
             </div>{' '}
-            <div className="flex-0">
-              <div className="hidden flex-none items-center ">
-                <a
-                  href="/components"
-                  className="btn btn-ghost drawer-button normal-case"
-                >
-                  <svg
-                    width={20}
-                    height={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    className="inline-block h-6 w-6 fill-current md:mr-2"
-                  >
-                    <path d="M6.5,22 C4.01471863,22 2,19.9852814 2,17.5 C2,15.0147186 4.01471863,13 6.5,13 C8.98528137,13 11,15.0147186 11,17.5 C11,19.9852814 8.98528137,22 6.5,22 Z M17.5,22 C15.0147186,22 13,19.9852814 13,17.5 C13,15.0147186 15.0147186,13 17.5,13 C19.9852814,13 22,15.0147186 22,17.5 C22,19.9852814 19.9852814,22 17.5,22 Z M6.5,11 C4.01471863,11 2,8.98528137 2,6.5 C2,4.01471863 4.01471863,2 6.5,2 C8.98528137,2 11,4.01471863 11,6.5 C11,8.98528137 8.98528137,11 6.5,11 Z M17.5,11 C15.0147186,11 13,8.98528137 13,6.5 C13,4.01471863 15.0147186,2 17.5,2 C19.9852814,2 22,4.01471863 22,6.5 C22,8.98528137 19.9852814,11 17.5,11 Z M17.5,9 C18.8807119,9 20,7.88071187 20,6.5 C20,5.11928813 18.8807119,4 17.5,4 C16.1192881,4 15,5.11928813 15,6.5 C15,7.88071187 16.1192881,9 17.5,9 Z M6.5,9 C7.88071187,9 9,7.88071187 9,6.5 C9,5.11928813 7.88071187,4 6.5,4 C5.11928813,4 4,5.11928813 4,6.5 C4,7.88071187 5.11928813,9 6.5,9 Z M17.5,20 C18.8807119,20 20,18.8807119 20,17.5 C20,16.1192881 18.8807119,15 17.5,15 C16.1192881,15 15,16.1192881 15,17.5 C15,18.8807119 16.1192881,20 17.5,20 Z M6.5,20 C7.88071187,20 9,18.8807119 9,17.5 C9,16.1192881 7.88071187,15 6.5,15 C5.11928813,15 4,16.1192881 4,17.5 C4,18.8807119 5.11928813,20 6.5,20 Z" />
-                  </svg>{' '}
-                  Components
-                </a>
-              </div>{' '}
-            </div>
+            <div className="flex-0"></div>
           </nav>
         </div>{' '}
         <div className="p-6 pb-16">
@@ -128,24 +110,24 @@ export default function Home() {
       >
         <label htmlFor="drawer" className="drawer-overlay" />{' '}
         <aside className="w-80 bg-base-200">
-          <div className="sticky top-0 z-20 hidden items-center gap-2 bg-base-200 bg-opacity-90 px-4 py-2 backdrop-blur lg:flex ">
+          <div className="sticky top-0 z-20 items-center hidden gap-2 px-4 py-2 bg-base-200 bg-opacity-90 backdrop-blur lg:flex ">
             <a
-              href="/"
+              href="#"
               aria-current="page"
               aria-label="Homepage"
-              className="flex-0 btn btn-ghost px-2"
+              className="px-2 flex-0 btn btn-ghost"
             >
-              <div className="font-title inline-flex text-lg text-primary transition-all duration-200 md:text-3xl">
+              <div className="inline-flex text-lg transition-all duration-200 font-title text-primary md:text-3xl">
                 <span className="lowercase">Store</span>{' '}
                 <span className="uppercase text-base-content">APP</span>
               </div>
             </a>{' '}
           </div>{' '}
-          <div className="grid-row-2 sticky top-0 z-10 grid w-full gap-y-2 bg-base-200 bg-opacity-90 py-3 px-2 backdrop-blur lg:hidden ">
+          <div className="sticky top-0 z-10 grid w-full px-2 py-3 grid-row-2 gap-y-2 bg-base-200 bg-opacity-90 backdrop-blur lg:hidden ">
             <div className="flex w-full">
               <label
                 htmlFor="drawer-search"
-                className="searchbox relative mx-3 w-full"
+                className="relative w-full mx-3 searchbox"
               >
                 <form data-svelte-search>
                   <div className="form-control">
@@ -158,7 +140,7 @@ export default function Home() {
                       <button className="btn btn-square">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
+                          className="w-6 h-6"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -178,30 +160,30 @@ export default function Home() {
             </div>
           </div>{' '}
           <div className="h-4" />{' '}
-          <ul className="menu menu-compact flex flex-col p-0 px-4">
+          <ul className="flex flex-col p-0 px-4 menu menu-compact">
             {(datasource ? datasource.products : []).map((product) => (
               <li key={product.sku}>
                 <a
                   href="#"
                   onClick={() => setProduct(product)}
                   id
-                  className="flex gap-4  "
+                  className="flex gap-4 "
                 >
                   <span className="flex-1">{product.name}</span>{' '}
                 </a>{' '}
               </li>
             ))}
           </ul>
-          <ul className="menu menu-compact flex flex-col p-0 px-4"></ul>{' '}
-          <div className="pointer-events-none sticky bottom-0 flex h-20 bg-gradient-to-t from-base-200 to-transparent" />
+          <ul className="flex flex-col p-0 px-4 menu menu-compact"></ul>{' '}
+          <div className="sticky bottom-0 flex h-20 pointer-events-none bg-gradient-to-t from-base-200 to-transparent" />
         </aside>
       </div>
       <input type="checkbox" id="drawer-search" className="modal-toggle" />
-      <div className="modal justify-end">
-        <div className="modal-box relative h-screen max-h-screen overflow-auto rounded-none">
+      <div className="justify-end modal">
+        <div className="relative h-screen max-h-screen overflow-auto rounded-none modal-box">
           <label
             htmlFor="drawer-search"
-            className="btn btn-circle btn-sm absolute right-2 top-2"
+            className="absolute btn btn-circle btn-sm right-2 top-2"
           >
             ✕
           </label>
@@ -209,8 +191,8 @@ export default function Home() {
             Congratulations random Interner user!
           </h3>
           <p className="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
+            {`You've been selected for a chance to get one year of subscription to
+            use Wikipedia for free!`}
           </p>
         </div>
       </div>
