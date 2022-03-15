@@ -8,9 +8,8 @@ import {
   Title,
   Tooltip,
 } from 'chart.js'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Line } from 'react-chartjs-2'
-import { useMemo } from 'react/cjs/react.development'
 
 ChartJS.register(
   CategoryScale,
