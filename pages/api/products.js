@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const result = await fetch('https://app4101.hieunguyen.dev/api/graphql', {
+  const result = await fetch('https://ks.saleanalyst.net/api/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

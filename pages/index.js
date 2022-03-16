@@ -105,7 +105,7 @@ export default function Home() {
                     </svg>
                   </label>
                 </span>{' '}
-                <div className="flex items-center gap-2 lg:hidden">
+                <div className="flex items-center flex-1 gap-2 lg:hidden">
                   <a
                     href="#"
                     aria-current="page"
@@ -118,7 +118,7 @@ export default function Home() {
                     </div>
                   </a>{' '}
                 </div>{' '}
-                <div className="hidden w-full max-w-sm lg:flex">
+                <div className="max-w-sm lg:flex">
                   <label
                     htmlFor="drawer-search"
                     className="relative w-full mx-3 searchbox"
@@ -157,13 +157,11 @@ export default function Home() {
             </nav>
           </div>{' '}
           <div className="p-6 pb-16">
-            <div className="flex flex-col items-center justify-center gap-6">
-              <Consumer>
-                {(props) => (
-                  <ChartExample product={props.product} dataSource={props} />
-                )}
-              </Consumer>
-            </div>
+            <Consumer>
+              {(props) => (
+                <ChartExample product={props.product} dataSource={props} />
+              )}
+            </Consumer>
           </div>
         </div>
         <div
