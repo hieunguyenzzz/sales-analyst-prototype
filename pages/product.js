@@ -1,8 +1,11 @@
-import ChartExample from '@components/ChartExample'
+import AgoliaChartExample from '@components/AgoliaChartExample'
 import Search from '@components/Search'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const { query } = useRouter()
+  const { sku } = query
   const [datasource, setDatasource] = useState()
   const [product, setProduct] = useState()
   useEffect(() => {
@@ -14,14 +17,14 @@ export default function Home() {
       .then((result) => setDatasource(result.data))
   }, [])
   return (
-    <div className="h-screen drawer drawer-mobile bg-base-100">
+    <div className="h-screen drawer-mobile drawer bg-base-100">
       <input id="drawer" type="checkbox" className="drawer-toggle" />{' '}
       <div
         className="drawer-content"
         style={{ scrollBehavior: 'smooth', scrollPaddingTop: '5rem' }}
       >
         <div className="sticky top-0 z-30 flex justify-center w-full h-16 transition-all duration-100 bg-base-100 bg-opacity-90 text-base-content backdrop-blur">
-          <nav className="w-full shadow navbar">
+          <nav className="w-full navbar">
             <div className="flex flex-1 md:gap-1 lg:gap-2">
               <span
                 className="tooltip tooltip-bottom before:text-xs before:content-[attr(data-tip)]"
@@ -29,7 +32,7 @@ export default function Home() {
               >
                 <label
                   htmlFor="drawer"
-                  className="btn btn-ghost btn-square drawer-button lg:hidden"
+                  className="btn btn-square btn-ghost drawer-button lg:hidden"
                 >
                   <svg
                     width={20}
@@ -101,7 +104,7 @@ export default function Home() {
         </div>{' '}
         <div className="p-6 pb-16">
           <div className="flex flex-col items-center justify-center gap-6">
-            <ChartExample product={product} dataSource={datasource} />
+            <AgoliaChartExample sku={sku} dataSource={datasource} />
           </div>
         </div>
       </div>
