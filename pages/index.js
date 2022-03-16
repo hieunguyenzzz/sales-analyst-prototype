@@ -34,7 +34,7 @@ const RecentProducts = () => {
             onClick={() => setProduct(product)}
             className="flex justify-between w-full gap-4 p-0 pl-3"
           >
-            <span className="flex-1">{product.name}</span>{' '}
+            <span className="flex-1">{product.name}</span>
             <div
               onClick={(e) => {
                 e.preventDefault()
@@ -62,7 +62,7 @@ const RecentProducts = () => {
                 <line x1={14} y1={11} x2={14} y2={17} />
               </svg>
             </div>
-          </a>{' '}
+          </a>
         </li>
       ))}
     </ul>
@@ -72,7 +72,7 @@ export default function Home() {
   return (
     <Provider>
       <div className="h-screen drawer-mobile drawer bg-base-100">
-        <input id="drawer" type="checkbox" className="drawer-toggle" />{' '}
+        <input id="drawer" type="checkbox" className="drawer-toggle" />
         <div
           className="drawer-content"
           style={{ scrollBehavior: 'smooth', scrollPaddingTop: '5rem' }}
@@ -104,7 +104,7 @@ export default function Home() {
                       />
                     </svg>
                   </label>
-                </span>{' '}
+                </span>
                 <div className="flex items-center flex-1 gap-2 lg:hidden">
                   <a
                     href="#"
@@ -113,11 +113,11 @@ export default function Home() {
                     className="px-2 flex-0 btn btn-ghost "
                   >
                     <div className="inline-flex text-lg transition-all duration-200 font-title text-primary md:text-3xl">
-                      <span className="lowercase text-primary">Store</span>{' '}
+                      <span className="lowercase text-primary">Store</span>
                       <span className="uppercase text-base-content">APP</span>
                     </div>
-                  </a>{' '}
-                </div>{' '}
+                  </a>
+                </div>
                 <div className="max-w-sm lg:flex">
                   <label
                     htmlFor="drawer-search"
@@ -149,13 +149,13 @@ export default function Home() {
                           </button>
                         </div>
                       </div>
-                    </form>{' '}
+                    </form>
                   </label>
                 </div>
-              </div>{' '}
+              </div>
               <div className="flex-0"></div>
             </nav>
-          </div>{' '}
+          </div>
           <div className="p-6 pb-16">
             <Consumer>
               {(props) => (
@@ -168,7 +168,7 @@ export default function Home() {
           className="drawer-side"
           style={{ scrollBehavior: 'smooth', scrollPaddingTop: '5rem' }}
         >
-          <label htmlFor="drawer" className="drawer-overlay" />{' '}
+          <label htmlFor="drawer" className="drawer-overlay" />
           <aside className="w-80 bg-base-200">
             <div className="sticky top-0 z-20 items-center hidden gap-2 px-4 py-2 bg-base-200 bg-opacity-90 backdrop-blur lg:flex ">
               <a
@@ -178,49 +178,13 @@ export default function Home() {
                 className="px-2 flex-0 btn btn-ghost"
               >
                 <div className="inline-flex text-lg transition-all duration-200 font-title text-primary md:text-3xl">
-                  <span className="lowercase">Store</span>{' '}
+                  <span className="lowercase">Store</span>
                   <span className="uppercase text-base-content">APP</span>
                 </div>
-              </a>{' '}
-            </div>{' '}
-            <div className="sticky top-0 z-10 grid w-full px-2 py-3 grid-row-2 gap-y-2 bg-base-200 bg-opacity-90 backdrop-blur lg:hidden ">
-              <div className="flex w-full">
-                <label
-                  htmlFor="drawer-search"
-                  className="relative w-full mx-3 searchbox"
-                >
-                  <form data-svelte-search>
-                    <div className="form-control">
-                      <div className="input-group">
-                        <input
-                          type="text"
-                          placeholder="Search…"
-                          className="input input-bordered"
-                        />
-                        <button className="btn btn-square">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </label>
-              </div>
-            </div>{' '}
+              </a>
+            </div>
             <div className="h-4" /> <RecentProducts />
-            <ul className="flex flex-col p-0 px-4 menu menu-compact"></ul>{' '}
+            <ul className="flex flex-col p-0 px-4 menu menu-compact"></ul>
             <div className="sticky bottom-0 flex h-20 pointer-events-none bg-gradient-to-t from-base-200 to-transparent" />
           </aside>
         </div>
