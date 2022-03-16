@@ -54,10 +54,33 @@ const InstantSearch = () => {
           {`"`}
         </p>
       )}
-      {s?.length === 0 && (
-        <div className="py-6">
-          <RecentProducts />
-        </div>
+      {(!s || s?.length === 0) && (
+        <ul className="w-full divide-y menu bg-base-100 text-base-content">
+          <RecentProducts>
+            {(products, setProduct) => {
+              return products?.slice(0, 10).map((p) => (
+                <li key={p.sku}>
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setProduct(p)
+                    }}
+                    href={'/product?sku=' + p.sku}
+                    className="flex w-full gap-3 "
+                  >
+                    <figure className="max-h-[80px] min-h-[80px] w-1/3 max-w-[80px] bg-base-200"></figure>
+                    <div className="flex-1 p-3">
+                      <h2 className="font-bold">{p.name}</h2>
+                      <div className="text-sm text-base-content text-opacity-70">
+                        {p.sku}
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              ))
+            }}
+          </RecentProducts>
+        </ul>
       )}
       <ul
         className={classNames(
@@ -70,7 +93,7 @@ const InstantSearch = () => {
         <Consumer>
           {({ products, setProduct } = {}) => {
             return data?.data?.products?.slice(0, 10).map((p) => (
-              <li key={p.sku}>
+              <li key={p.sku} className="animate-fadeIn animate-faster">
                 <a
                   onClick={(e) => {
                     e.preventDefault()

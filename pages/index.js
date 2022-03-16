@@ -5,7 +5,7 @@ import RecentProducts from '@components/RecentProducts'
 export default function Home() {
   return (
     <Provider>
-      <div className="h-screen drawer-mobile drawer bg-base-100 text-base-content">
+      <div className="h-screen drawer-mobile drawer animate-fadeIn bg-base-100 text-base-content">
         <input id="drawer" type="checkbox" className="drawer-toggle" />
         <div
           className="drawer-content"
@@ -47,10 +47,8 @@ export default function Home() {
                     className="px-2 flex-0 btn btn-ghost "
                   >
                     <div className="inline-flex text-lg transition-all duration-200 font-title text-primary md:text-3xl">
-                      <span className="lowercase text-primary">Product</span>
-                      <span className="uppercase text-base-content">
-                        analytics
-                      </span>
+                      <span className="lowercase">Sale</span>
+                      <span className="uppercase text-base-content">APP</span>
                     </div>
                   </a>
                 </div>
@@ -92,7 +90,7 @@ export default function Home() {
               <div className="flex-0"></div>
             </nav>
           </div>
-          <div className="p-6 pb-16">
+          <div className="pb-16">
             <Consumer>
               {(props) => (
                 <ChartExample product={props.product} dataSource={props} />
@@ -114,8 +112,8 @@ export default function Home() {
                 className="px-2 flex-0 btn btn-ghost"
               >
                 <div className="inline-flex text-lg transition-all duration-200 font-title text-primary md:text-3xl">
-                  <span className="lowercase">Product</span>
-                  <span className="uppercase text-base-content">analytics</span>
+                  <span className="lowercase">Sale</span>
+                  <span className="uppercase text-base-content">APP</span>
                 </div>
               </a>
             </div>

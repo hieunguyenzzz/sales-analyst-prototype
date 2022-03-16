@@ -2,7 +2,7 @@ import { Context } from '@components/Provider'
 import localforage from 'localforage'
 import { useContext, useEffect, useState } from 'react'
 
-const RecentProducts = () => {
+const RecentProducts = ({ children }) => {
   const { product, setProduct } = useContext(Context)
   const [recentsProducts, setRecentProducts] = useState([])
   useEffect(() => {
@@ -24,6 +24,9 @@ const RecentProducts = () => {
   useEffect(() => {
     localforage.setItem('recentsProducts', recentsProducts)
   }, [recentsProducts])
+  if (children) {
+    return children(recentsProducts, setProduct)
+  }
   return (
     <ul className="flex flex-col p-0 px-4 menu menu-compact">
       {recentsProducts.map((product) => (

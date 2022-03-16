@@ -1,4 +1,5 @@
-module.exports = {
+const withAnimations = require('animated-tailwindcss')
+module.exports = withAnimations({
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
@@ -55,4 +56,4 @@ module.exports = {
     require('./styles/plugins/nestedGroup'),
     require('@tailwindcss/typography'),
   ],
-}
+})
