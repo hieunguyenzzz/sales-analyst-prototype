@@ -85,19 +85,17 @@ export default function ChartExample({ product, dataSource }) {
   }
   const ordersBySku = useMemo(
     () =>
-      dataSource
-        ? dataSource.orders
-            .filter((item) => item.product.sku === sku)
-            .map((item) => {
-              const date = new Date(item.created_at)
-              return {
-                ...item,
-                date,
-                dateString: date.toLocaleDateString('en-US'),
-              }
-            })
-            .sort((a, b) => a.date - b.date)
-        : [],
+      dataSource?.orders
+        ?.filter((item) => item.product.sku === sku)
+        .map((item) => {
+          const date = new Date(item.created_at)
+          return {
+            ...item,
+            date,
+            dateString: date.toLocaleDateString('en-US'),
+          }
+        })
+        .sort((a, b) => a.date - b.date) || [],
     [dataSource, sku]
   )
   const labels = [...new Set(ordersBySku.map((item) => item.dateString))]
