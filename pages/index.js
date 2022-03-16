@@ -1,77 +1,11 @@
 import ChartExample from '@components/ChartExample'
 import InstantSearch from '@components/InstantSearch'
-import Provider, { Consumer, Context } from '@components/Provider'
-import localforage from 'localforage'
-import { useContext, useEffect, useState } from 'react'
-const RecentProducts = () => {
-  const { product, setProduct } = useContext(Context)
-  const [recentsProducts, setRecentProducts] = useState([])
-  useEffect(() => {
-    if (product) {
-      setRecentProducts((recentsProducts) => {
-        if (recentsProducts.find((p) => p.sku === product.sku))
-          return recentsProducts
-        return [...recentsProducts, product]
-      })
-    }
-  }, [product])
-  useEffect(() => {
-    localforage.getItem('recentsProducts', function (err, value) {
-      if (value) {
-        setRecentProducts(value)
-      }
-    })
-  }, [])
-  useEffect(() => {
-    localforage.setItem('recentsProducts', recentsProducts)
-  }, [recentsProducts])
-  return (
-    <ul className="flex flex-col p-0 px-4 menu menu-compact">
-      {recentsProducts.map((product) => (
-        <li key={product.sku}>
-          <a
-            href="#"
-            onClick={() => setProduct(product)}
-            className="flex justify-between w-full gap-4 p-0 pl-3"
-          >
-            <span className="flex-1">{product.name}</span>
-            <div
-              onClick={(e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                setRecentProducts(
-                  recentsProducts.filter((p) => p.sku !== product.sku)
-                )
-              }}
-              className="icon btn btn-ghost btn-circle"
-            >
-              <svg
-                stroke="currentColor"
-                fill="none"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polyline points="3 6 5 6 21 6" />
-                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                <line x1={10} y1={11} x2={10} y2={17} />
-                <line x1={14} y1={11} x2={14} y2={17} />
-              </svg>
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
-  )
-}
+import Provider, { Consumer } from '@components/Provider'
+import RecentProducts from '@components/RecentProducts'
 export default function Home() {
   return (
     <Provider>
-      <div className="h-screen drawer-mobile drawer bg-base-100">
+      <div className="h-screen drawer-mobile drawer bg-base-100 text-base-content">
         <input id="drawer" type="checkbox" className="drawer-toggle" />
         <div
           className="drawer-content"
@@ -113,8 +47,10 @@ export default function Home() {
                     className="px-2 flex-0 btn btn-ghost "
                   >
                     <div className="inline-flex text-lg transition-all duration-200 font-title text-primary md:text-3xl">
-                      <span className="lowercase text-primary">Store</span>
-                      <span className="uppercase text-base-content">APP</span>
+                      <span className="lowercase text-primary">Product</span>
+                      <span className="uppercase text-base-content">
+                        analytics
+                      </span>
                     </div>
                   </a>
                 </div>
@@ -169,7 +105,7 @@ export default function Home() {
           style={{ scrollBehavior: 'smooth', scrollPaddingTop: '5rem' }}
         >
           <label htmlFor="drawer" className="drawer-overlay" />
-          <aside className="w-80 bg-base-200">
+          <aside className="w-80 max-w-[80vw] bg-base-200 text-base-content shadow-inner">
             <div className="sticky top-0 z-20 items-center hidden gap-2 px-4 py-2 bg-base-200 bg-opacity-90 backdrop-blur lg:flex ">
               <a
                 href="#"
@@ -178,8 +114,8 @@ export default function Home() {
                 className="px-2 flex-0 btn btn-ghost"
               >
                 <div className="inline-flex text-lg transition-all duration-200 font-title text-primary md:text-3xl">
-                  <span className="lowercase">Store</span>
-                  <span className="uppercase text-base-content">APP</span>
+                  <span className="lowercase">Product</span>
+                  <span className="uppercase text-base-content">analytics</span>
                 </div>
               </a>
             </div>
@@ -190,10 +126,10 @@ export default function Home() {
         </div>
         <input type="checkbox" id="drawer-search" className="modal-toggle" />
         <div className="justify-end modal">
-          <div className="modal-box relative  h-screen max-h-screen w-[calc(100vw-54px)] overflow-visible rounded-none p-0">
+          <div className="modal-box relative  h-screen max-h-screen w-[calc(100vw-72px)] overflow-visible rounded-none p-0">
             <label
               htmlFor="drawer-search"
-              className="absolute mr-3 btn btn-circle btn-sm right-full top-2"
+              className="absolute mr-3 text-2xl btn btn-circle right-full top-2"
             >
               ✕
             </label>

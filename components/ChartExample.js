@@ -10,6 +10,7 @@ import {
 } from 'chart.js'
 import React, { useMemo } from 'react'
 import { Line } from 'react-chartjs-2'
+import useSWR from 'swr'
 
 ChartJS.register(
   CategoryScale,
@@ -45,9 +46,10 @@ export const data = {
     },
   ],
 }
-
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export function ChartExample({ product, dataSource }) {
   const sku = product?.sku || 'wishbone'
+  const { data, error } = useSWR('/api/orders?sku=' + sku, fetcher)
   const name = product?.name || 'wishbone'
   const options = {
     responsive: true,
@@ -85,8 +87,8 @@ export function ChartExample({ product, dataSource }) {
   }
   const ordersBySku = useMemo(
     () =>
-      dataSource?.orders
-        ?.filter((item) => item.product.sku === sku)
+      (data?.data?.orders || dataSource?.orders)
+        ?.filter((item) => item?.product?.sku === sku)
         .map((item) => {
           const date = new Date(item.created_at)
           return {
@@ -96,17 +98,17 @@ export function ChartExample({ product, dataSource }) {
           }
         })
         .sort((a, b) => a.date - b.date) || [],
-    [dataSource, sku]
+    [data?.data?.orders, dataSource?.orders, sku]
   )
   const labels = [...new Set(ordersBySku.map((item) => item.dateString))]
   if (dataSource) {
     return (
       <div className="flex flex-col items-center justify-center gap-6">
         <div className="self-start tabs">
-          <a href="#chart" className="tab tab-bordered active:tab-active">
+          <a href="#chart" className="tab tab-bordered focus:tab-active">
             Chart
           </a>
-          <a href="#data" className="tab tab-bordered active:tab-active">
+          <a href="#data" className="tab tab-bordered focus:tab-active">
             Data
           </a>
         </div>
@@ -147,7 +149,7 @@ export function ChartExample({ product, dataSource }) {
               }}
             />
           </div>
-          <div id="data" className="w-full carousel-item">
+          <div id="data" className="w-full overflow-auto carousel-item">
             <table className="table w-full table-compact">
               <thead>
                 <tr>
