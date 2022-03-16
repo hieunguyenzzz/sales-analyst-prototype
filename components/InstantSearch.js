@@ -54,7 +54,7 @@ const InstantSearch = () => {
           {`"`}
         </p>
       )}
-      {!s && s.length === 0 && (
+      {s?.length === 0 && (
         <div className="py-6">
           <RecentProducts />
         </div>
