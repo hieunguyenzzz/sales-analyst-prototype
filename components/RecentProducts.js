@@ -8,9 +8,11 @@ const RecentProducts = ({ children }) => {
   useEffect(() => {
     if (product) {
       setRecentProducts((recentsProducts) => {
-        if (recentsProducts.find((p) => p.sku === product.sku))
+        if (recentsProducts.find((p) => p.sku === product.sku)) {
           return recentsProducts
-        return [...recentsProducts, product]
+        }
+
+        return [product, ...recentsProducts]
       })
     }
   }, [product])
@@ -30,11 +32,11 @@ const RecentProducts = ({ children }) => {
   return (
     <ul className="flex flex-col p-0 px-4 menu menu-compact">
       {recentsProducts.map((product) => (
-        <li key={product.sku}>
+        <li key={product.sku} className="overflow-hidden">
           <a
             href="#"
             onClick={() => setProduct(product)}
-            className="flex justify-between w-full gap-4 p-0 pl-4 "
+            className="flex justify-between w-full gap-4 p-1 pl-4 animate-fadeIn"
           >
             <span className="flex-1 truncate">{product.name}</span>
             <div
@@ -45,7 +47,7 @@ const RecentProducts = ({ children }) => {
                   recentsProducts.filter((p) => p.sku !== product.sku)
                 )
               }}
-              className="icon btn btn-ghost btn-circle"
+              className="icon btn btn-ghost btn-circle btn-sm  rounded-[var(--rounded-btn,0.5rem)]"
             >
               <svg
                 stroke="currentColor"

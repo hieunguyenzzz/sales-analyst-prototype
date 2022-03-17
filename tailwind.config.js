@@ -22,7 +22,9 @@ module.exports = withAnimations({
   },
   daisyui: {
     themes: [
+      'lofi',
       'light',
+      'dark',
       'cupcake',
       'bumblebee',
       'emerald',
@@ -35,7 +37,6 @@ module.exports = withAnimations({
       'garden',
       'forest',
       'aqua',
-      'lofi',
       'pastel',
       'fantasy',
       'wireframe',
