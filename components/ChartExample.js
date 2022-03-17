@@ -60,8 +60,7 @@ export function ChartExample({ product, dataSource }) {
     stacked: false,
     plugins: {
       title: {
-        display: true,
-
+        display: false,
         text: name,
       },
     },
@@ -101,143 +100,100 @@ export function ChartExample({ product, dataSource }) {
     [data?.data?.orders, dataSource?.orders, sku]
   )
   const labels = [...new Set(ordersBySku.map((item) => item.dateString))]
-  if (dataSource) {
-    return (
-      <div className="flex flex-col items-center justify-center">
-        <div className="justify-between w-full px-6 border-b">
-          <div className="w-full text-sm breadcrumbs">
-            <ul>
-              <li>
-                <a>Product</a>
-              </li>
-              <li>
-                <a>
-                  {product?.name || 'Wishbone chair'} ({sku})
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="justify-center mx-auto tabs">
-            <a href="#chart" className="tab tab-bordered focus:tab-active">
-              Chart
-            </a>
-            <a href="#data" className="tab tab-bordered focus:tab-active">
-              Data
-            </a>
-          </div>
-        </div>
 
-        <div className="w-full carousel">
-          <div id="chart" className="w-full carousel-item">
-            <div className="w-full p-6">
-              <Line
-                options={options}
-                data={{
-                  labels,
-                  datasets: [
-                    {
-                      label: 'Price',
-                      data: labels.map((date) => {
-                        const prices = ordersBySku.filter(
-                          (item) => item.dateString === date
-                        )
-                        return prices[0]?.price
-                      }),
-                      borderColor: 'rgb(255, 99, 132)',
-                      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                      yAxisID: 'y',
-                    },
-                    {
-                      label: 'Amount',
-                      data: labels.map((date) => {
-                        const qty = ordersBySku
-                          .filter((item) => item.dateString === date)
-                          .reduce((result, item) => {
-                            return result + item.qty
-                          }, 0)
-                        return qty
-                      }),
-                      borderColor: 'rgb(53, 162, 235)',
-                      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-                      yAxisID: 'y1',
-                    },
-                  ],
-                }}
-              />
-            </div>
-          </div>
-          <div id="data" className="w-full overflow-auto carousel-item">
-            <div className="w-full p-6">
-              <table className="table w-full table-compact">
-                <thead>
-                  <tr>
-                    <th />
-                    <th>Name</th>
-                    <th>sku</th>
-                    <th>quantity</th>
-                    <th>price</th>
-                    <th>date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {ordersBySku.map((item, i) => {
-                    return (
-                      <tr key={i}>
-                        <th>{i + 1}</th>
-                        <td>{item.product.name}</td>
-                        <td>{item.product.sku}</td>
-                        <td>{item.qty}</td>
-                        <td>{item.price}</td>
-                        <td>{item.dateString}</td>
-                      </tr>
-                    )
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
   return (
-    <div className="flex flex-col items-center justify-center gap-6">
-      <div className="self-start tabs">
-        <a href="#chart" className="tab tab-bordered active:tab-active">
-          Chart
-        </a>
-        <a href="#data" className="tab tab-bordered active:tab-active">
-          Data
-        </a>
-      </div>
-      <div className="w-full carousel">
-        <div id="chart" className="w-full p-6 carousel-item">
-          <Line options={options} data={data} />
+    <div className="flex flex-col items-center justify-center">
+      <div className="justify-between w-full ">
+        <div className="w-full px-6 text-sm border-b breadcrumbs">
+          <ul>
+            <li>
+              <a>Product</a>
+            </li>
+            <li>
+              <a>
+                {product?.name || 'Wishbone chair'} ({sku})
+              </a>
+            </li>
+          </ul>
         </div>
-        <div id="data" className="w-full p-6 carousel-item">
-          <table className="table w-full table-compact">
-            <thead>
-              <tr>
-                <th />
-                <th>Name</th>
-                <th>sku</th>
-                <th>quantity</th>
-                <th>price</th>
-                <th>date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>Blue</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="px-2 mx-auto btn-group bg-base-200">
+          <a href="#chart" className="btn btn-ghost btn-sm">
+            Chart
+          </a>
+          <a href="#data" className="btn btn-ghost btn-sm">
+            Data
+          </a>
+        </div>
+      </div>
+
+      <div className="w-full carousel">
+        <div id="chart" className="w-full carousel-item">
+          <div className="w-full p-6 overflow-auto">
+            <Line
+              options={options}
+              data={{
+                labels,
+                datasets: [
+                  {
+                    label: 'Price',
+                    data: labels.map((date) => {
+                      const prices = ordersBySku.filter(
+                        (item) => item.dateString === date
+                      )
+                      return prices[0]?.price
+                    }),
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    yAxisID: 'y',
+                  },
+                  {
+                    label: 'Amount',
+                    data: labels.map((date) => {
+                      const qty = ordersBySku
+                        .filter((item) => item.dateString === date)
+                        .reduce((result, item) => {
+                          return result + item.qty
+                        }, 0)
+                      return qty
+                    }),
+                    borderColor: 'rgb(53, 162, 235)',
+                    backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                    yAxisID: 'y1',
+                  },
+                ],
+              }}
+            />
+          </div>
+        </div>
+        <div id="data" className="w-full overflow-auto carousel-item">
+          <div className="w-full p-6">
+            <table className="table w-full table-zebra table-compact">
+              <thead>
+                <tr>
+                  <th />
+                  <th>Name</th>
+                  <th>sku</th>
+                  <th>quantity</th>
+                  <th>price</th>
+                  <th>date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ordersBySku.map((item, i) => {
+                  return (
+                    <tr key={i}>
+                      <th>{i + 1}</th>
+                      <td>{item.product.name}</td>
+                      <td>{item.product.sku}</td>
+                      <td>{item.qty}</td>
+                      <td>{item.price}</td>
+                      <td>{item.dateString}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

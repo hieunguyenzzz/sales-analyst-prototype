@@ -20,6 +20,7 @@
     "chart.js": "^3.7.1",
     "chartjs": "^0.3.24",
     "classnames": "^2.3.1",
+    "color": "^4.2.1",
     "daisyui": "^2.8.0",
     "faker": "^6.6.6",
     "localforage": "^1.10.0",

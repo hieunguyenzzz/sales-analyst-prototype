@@ -22,6 +22,10 @@ const InstantSearch = () => {
           <div className="w-full form-control">
             <div className="flex-1 w-full rounded input-group">
               <input
+                autoFocus
+                onFocus={(e) => {
+                  e.target.setSelectionRange(0, e.target.value.length)
+                }}
                 onChange={handleInputChange}
                 type="text"
                 placeholder="Search…"
@@ -71,9 +75,7 @@ const InstantSearch = () => {
                     <figure className="max-h-[80px] min-h-[80px] w-1/3 max-w-[80px] bg-base-200"></figure>
                     <div className="flex-1 p-3">
                       <h2 className="font-bold">{p.name}</h2>
-                      <div className="text-sm text-base-content text-opacity-70">
-                        {p.sku}
-                      </div>
+                      <div className="text-sm opacity-70">{p.sku}</div>
                     </div>
                   </a>
                 </li>
@@ -93,7 +95,11 @@ const InstantSearch = () => {
         <Consumer>
           {({ products, setProduct } = {}) => {
             return data?.data?.products?.slice(0, 10).map((p) => (
-              <li key={p.sku} className="animate-fadeIn animate-faster">
+              <li
+                tabIndex={'-1'}
+                key={p.sku}
+                className="animate-fadeIn animate-faster"
+              >
                 <a
                   onClick={(e) => {
                     e.preventDefault()
@@ -105,9 +111,7 @@ const InstantSearch = () => {
                   <figure className="max-h-[80px] min-h-[80px] w-1/3 max-w-[80px] bg-base-200"></figure>
                   <div className="flex-1 p-3">
                     <h2 className="font-bold">{p.name}</h2>
-                    <div className="text-sm text-base-content text-opacity-70">
-                      {p.sku}
-                    </div>
+                    <p className="text-sm opacity-70">{p.sku}</p>
                   </div>
                 </a>
               </li>

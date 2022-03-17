@@ -54,10 +54,30 @@ export default function Home() {
                 </div>
                 <div className="max-w-sm lg:flex">
                   <label
+                    tabIndex={'-1'}
                     htmlFor="drawer-search"
                     className="relative w-full mx-3 searchbox"
                   >
-                    <form data-svelte-search className="pointer-events-none">
+                    <div className="btn btn-ghost btn-circle lg:hidden">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                    </div>
+                    <form
+                      data-svelte-search
+                      className="hidden pointer-events-none lg:block"
+                    >
                       <div className="form-control">
                         <div className="input-group">
                           <input
@@ -117,8 +137,15 @@ export default function Home() {
                 </div>
               </a>
             </div>
-            <div className="h-4" /> <RecentProducts />
-            <ul className="flex flex-col p-0 px-4 menu menu-compact"></ul>
+
+            <div className="h-4" />
+            <ul className="flex flex-col p-0 px-4 menu menu-compact">
+              <li className="menu-title">
+                <span>Recents</span>
+              </li>
+            </ul>
+            <RecentProducts />
+
             <div className="sticky bottom-0 flex h-20 pointer-events-none bg-gradient-to-t from-base-200 to-transparent" />
           </aside>
         </div>
@@ -127,7 +154,7 @@ export default function Home() {
           <div className="modal-box relative  h-screen max-h-screen w-[calc(100vw-72px)] overflow-visible rounded-none p-0">
             <label
               htmlFor="drawer-search"
-              className="absolute mr-3 text-2xl btn btn-circle right-full top-2"
+              className="absolute mr-3 text-2xl shadow-xl btn btn-circle right-full top-2"
             >
               ✕
             </label>

@@ -34,7 +34,7 @@ const RecentProducts = ({ children }) => {
           <a
             href="#"
             onClick={() => setProduct(product)}
-            className="flex justify-between w-full gap-4 p-0 pl-3 "
+            className="flex justify-between w-full gap-4 p-0 pl-4 "
           >
             <span className="flex-1 truncate">{product.name}</span>
             <div
