@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
+  images: {
+    domains: ['image-proxy.ngohoanglongptit8635.workers.dev'],
+  },
 }
-
-module.exports = nextConfig

@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+  :root {
+    --header-height: 144px;
+    --container-offset: 1.5rem;
+    @apply font-body;
+  }
+  @screen sm {
+    :root {
+      --container-offset: 3rem;
+    }
+  }
+  h1 {
+    @apply font-heading text-[52px] font-light leading-none tracking-[-1px] sm:text-[64px] lg:text-[72px];
+  }
+  h1 ~ p {
+    @apply mt-12 text-2xl leading-normal tracking-[-0.25px] sm:text-3xl;
+  }
+
+  h2 {
+    @apply text-[32px] leading-none tracking-[-1.5px] sm:text-[40px];
+  }
+  h2 ~ p {
+    @apply mt-6 text-2xl leading-snug tracking-[-0.25px];
+  }
+}
