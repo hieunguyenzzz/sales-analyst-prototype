@@ -25,8 +25,8 @@ export default function About({
           <Image ratio={image.height / image.width} src={image.src} />
           <p className="mt-4 ">{image.alt}</p>
         </div>
-        <div className="max-w-3xl mx-auto mt-24 space-y-12">
-          <h2 className="font-light leading-none font-heading">
+        <div className="mx-auto mt-24 max-w-3xl space-y-12">
+          <h2 className="font-heading font-light leading-none">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porta ut
             nulla curabitur pulvinar tincidunt consequat etiam. Quis nisl orci
             diam id gravida feugiat .
@@ -46,8 +46,8 @@ export default function About({
       <div className="divider-section" />
       <div className="container mt-12">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-          <h2>{'Our values'}</h2>
-          <div className="max-w-3xl col-span-full md:col-end-3 lg:col-start-2 lg:col-end-4 lg:mt-0">
+          <h2 className="h2">{'Our values'}</h2>
+          <div className="col-span-full max-w-3xl md:col-end-3 lg:col-start-2 lg:col-end-4 lg:mt-0">
             <ul className="grid gap-8 sm:grid-cols-2 md:pl-0 lg:gap-12">
               {[
                 {
@@ -69,7 +69,7 @@ export default function About({
               ].map(({ label, value }) => (
                 <React.Fragment key={label}>
                   <li>
-                    <a href="#" className="block pb-4 space-y-6 ">
+                    <a href="#" className="block space-y-6 pb-4 ">
                       <div className="text-2xl leading-none lg:text-3xl">
                         {label}
                       </div>
@@ -89,13 +89,13 @@ export default function About({
       <div className="divider-section" />
       <div>
         <div className="container grid gap-6 md:grid-cols-2 md:gap-y-10">
-          <h2>The process</h2>
+          <h2 className="h2">The process</h2>
           <p className="mx-auto md:mt-0 md:max-w-[70%]">
             Ac viverra purus in in pretium arcu amet. Morbi nisl mauris sagittis
             purus donec lobortis amet.
           </p>
         </div>
-        <ul className="container grid gap-12 mt-12 col-span-full sm:grid-cols-2 md:mt-24 lg:grid-cols-3">
+        <ul className="container col-span-full mt-12 grid gap-12 sm:grid-cols-2 md:mt-24 lg:grid-cols-3">
           {[
             {
               label: 'Research',
@@ -130,8 +130,8 @@ export default function About({
           ].map(({ label, value }, i) => {
             return (
               <li key={label}>
-                <a href="#" className="block pb-4 space-y-6 ">
-                  <div className="pb-3 mb-6 border-b text-primary md:mt-12">
+                <a href="#" className="block space-y-6 pb-4 ">
+                  <div className="mb-6 border-b pb-3 text-primary md:mt-12">
                     {i < 9 ? `0${i + 1}` : i + 1}
                   </div>
                   <div className="text-2xl leading-none md:text-3xl">

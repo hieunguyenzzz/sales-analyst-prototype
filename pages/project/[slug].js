@@ -8,7 +8,7 @@ const ProjectSlug = ({ data }) => {
   return (
     <>
       <Hero heading={data.title} />
-      <div className="container h-px mt-10 divider before:h-px after:h-px md:mb-16 md:mt-36" />
+      <div className="container divider mt-10 h-px before:h-px after:h-px md:mb-16 md:mt-36" />
       <div className="container">
         <Image
           ratio={1067 / 1600}
@@ -65,7 +65,7 @@ Vel praesentium provident quibusdam optio `}
       <div className="divider-section" />
       <div>
         <div className="container grid gap-12 md:gap-y-10 lg:grid-cols-3">
-          <h2>The client says</h2>
+          <h2 className="h2">The client says</h2>
           <div className="max-w-3xl md:ml-auto lg:col-span-2">
             <p
               quote-symbol={'’’'}
@@ -75,7 +75,7 @@ Vel praesentium provident quibusdam optio `}
               nulla curabitur pulvinar tincidunt consequat etiam. Quis nisl orci
               diam id gravida feugiat .
             </p>
-            <div className="w-full pl-12 mt-12 space-y-1">
+            <div className="mt-12 w-full space-y-1 pl-12">
               <div className="text-3xl" href="#">
                 Phillip Aminoff
               </div>

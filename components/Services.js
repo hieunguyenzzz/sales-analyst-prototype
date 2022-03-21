@@ -12,16 +12,16 @@ function Services({
   return (
     <div className="container mt-12">
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <h2>{heading}</h2>
+        <h2 className="h2">{heading}</h2>
         <p className="md:mt-0 lg:col-span-1">{description}</p>
         {url && (
-          <div className="w-full mx-auto md:col-start-2 lg:col-end-3">
+          <div className="mx-auto w-full md:col-start-2 lg:col-end-3">
             <a className="btn-animated group" href={url}>
               {urlText}
             </a>
           </div>
         )}
-        <div className="gap-8 col-span-full mt-14 md:col-end-3 lg:col-start-2 lg:col-end-4">
+        <div className="col-span-full mt-14 gap-8 md:col-end-3 lg:col-start-2 lg:col-end-4">
           <ul className="list-numbered md:pl-0">
             {items.map((item) => (
               <React.Fragment key={item}>

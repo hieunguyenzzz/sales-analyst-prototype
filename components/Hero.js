@@ -16,7 +16,7 @@ and branding studio`,
       )}
     >
       <div className="container max-w-5xl ">
-        <h1>{heading}</h1>
+        <h1 className="h1">{heading}</h1>
         <p className="">{description}</p>
         {time && <div className="mt-[1em] text-sm opacity-60">{time}</div>}
       </div>

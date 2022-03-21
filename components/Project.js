@@ -67,7 +67,7 @@ function Project({
   return (
     <div className="">
       <div className="container grid gap-6 md:grid-cols-2 md:gap-y-10">
-        <h2>{heading}</h2>
+        <h2 className="h2">{heading}</h2>
         <p className="mx-auto md:mt-0 md:max-w-[70%]">{description}</p>
         {url && (
           <div className="mx-auto w-full md:col-start-2 md:max-w-[70%]">
@@ -82,7 +82,7 @@ function Project({
         key="block"
         component={'ul'}
         data-edit="ul"
-        className="container gap-10 mt-20 space-y-10 columns-1 md:columns-2 lg:gap-14 lg:space-y-14"
+        className="container mt-20 columns-1 gap-10 space-y-10 md:columns-2 lg:gap-14 lg:space-y-14"
       >
         {projects.map((item, i) => {
           return (
@@ -99,8 +99,8 @@ function Project({
                       ratio={item.img.height / item.img.width}
                     />
                   </div>
-                  <div className="relative w-full my-4 mb-3 border-b">
-                    <div className="absolute left-0 w-0 h-px transition-all duration-700 ease-in-out top-full bg-primary group-hover:w-full"></div>
+                  <div className="relative my-4 mb-3 w-full border-b">
+                    <div className="absolute left-0 top-full h-px w-0 bg-primary transition-all duration-700 ease-in-out group-hover:w-full"></div>
                   </div>
                   <div>
                     <div className="text-xl">{item.title}</div>

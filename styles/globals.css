@@ -86,17 +86,17 @@
       --container-offset: 3rem;
     }
   }
-  h1 {
+  .h1 {
     @apply whitespace-pre-wrap break-normal font-heading text-[3em] font-light leading-none tracking-[-1px] sm:text-[4em] lg:text-[4.5em] xl:text-[5em];
   }
-  h1 ~ p {
+  .h1 ~ p {
     @apply mt-12 max-w-[44ch] text-[1.5em] leading-normal tracking-[-0.25px] md:text-[1.875em];
   }
 
-  h2 {
+  .h2 {
     @apply text-[32px] leading-none tracking-[-1.5px] sm:text-[40px];
   }
-  h2 ~ p {
+  .h2 ~ p {
     @apply mt-6 text-2xl leading-snug tracking-[-0.25px];
   }
 }
