@@ -14,7 +14,7 @@ function Footer({
 }) {
   return (
     <footer className="container mt-12">
-      <div className="grid gap-16 border-t pt-28">
+      <div className="grid gap-16 ">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="h-[17px] w-[17px] rounded-full bg-primary lg:col-span-1 "></div>
           <div className="col-span-2 text-6xl leading-none font-heading">
@@ -22,7 +22,7 @@ function Footer({
           </div>
         </div>
         <div className="grid gap-8 lg:grid-cols-3">
-          <ul className="lg:col-start-2 lg:col-end-2 ">
+          <ul className="list-animated lg:col-start-2 lg:col-end-2">
             {navItems.map((item) => (
               <li key={item}>
                 <a href="#" className="block py-2 text-xl hover:text-primary">
@@ -31,7 +31,7 @@ function Footer({
               </li>
             ))}
           </ul>
-          <ul className="lg:col-start-3 lg:col-end-3 ">
+          <ul className="list-animated lg:col-start-3 lg:col-end-3">
             {socials.map((item) => (
               <li key={item}>
                 <a href="#" className="block py-2 text-xl hover:text-primary">

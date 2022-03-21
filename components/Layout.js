@@ -7,7 +7,11 @@ function Layout({ children }) {
     <div>
       <Header />
       <div className="h-header" id="content" />
-      {children}
+      <main className="min-h-[calc(100vh-var(--header-height))]">
+        {children}
+      </main>
+      <div className="container h-px my-24 divider before:h-px after:h-px md:mt-36" />
+
       <Footer />
     </div>
   )

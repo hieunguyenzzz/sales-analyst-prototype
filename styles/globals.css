@@ -1,5 +1,70 @@
 @tailwind base;
 @tailwind components;
+@layer components {
+  .divider-section {
+    @apply container h-px mt-16 mb-10 divider before:h-px after:h-px md:mb-16 md:mt-36;
+    &.divider-section-noborder::before,
+    &.divider-section-noborder::after {
+      --tw-bg-opacity: 0;
+    }
+  }
+  .btn-animated {
+    @apply relative px-6;
+    &::before {
+      content: '';
+      @apply absolute left-0 top-1/2 z-[-1] h-3 w-3 -translate-y-1/2 transform rounded-full bg-primary bg-opacity-70 bg-blend-screen transition-all duration-300 ease-in-out;
+    }
+    &:hover::before {
+      @apply h-[150%] w-full;
+    }
+    &:active::before {
+      @apply scale-105 bg-opacity-100;
+    }
+    &:focus::before {
+      @apply h-[160%] w-full;
+    }
+  }
+  .list-animated a {
+    @apply relative;
+    &::before {
+      content: '';
+      @apply absolute -left-4 top-1/2 z-[-1] h-2 w-2 -translate-y-1/2 scale-0 transform rounded-full bg-primary bg-opacity-0 bg-blend-screen transition-all duration-300 ease-in-out md:-left-6 md:h-3 md:w-3;
+    }
+    &:hover::before {
+      @apply scale-100 bg-opacity-70;
+    }
+    &:active::before {
+      @apply scale-110;
+    }
+    &:focus::before {
+      @apply scale-105 bg-opacity-100;
+    }
+  }
+  .list-numbered {
+    counter-reset: circle-counter;
+    @apply container grid;
+    & a {
+      counter-increment: circle-counter;
+    }
+    & li {
+      @apply relative pl-0;
+      & a::before {
+        content: counter(circle-counter);
+        @apply absolute -left-6 top-0 z-[-1] h-3 w-3 transform rounded-full  bg-primary bg-opacity-0 text-base text-primary bg-blend-screen transition-all duration-300 ease-in-out;
+      }
+      &:hover::before {
+        @apply scale-100 bg-opacity-70;
+      }
+      &:active::before {
+        @apply scale-110;
+      }
+      &:focus::before {
+        @apply scale-105 bg-opacity-100;
+      }
+    }
+  }
+}
+
 @tailwind utilities;
 
 @layer base {
@@ -22,10 +87,10 @@
     }
   }
   h1 {
-    @apply font-heading text-[52px] font-light leading-none tracking-[-1px] sm:text-[64px] lg:text-[72px];
+    @apply whitespace-pre-wrap break-normal font-heading text-[3em] font-light leading-none tracking-[-1px] sm:text-[4em] lg:text-[4.5em] xl:text-[5em];
   }
   h1 ~ p {
-    @apply mt-12 text-2xl leading-normal tracking-[-0.25px] sm:text-3xl;
+    @apply mt-12 max-w-[44ch] text-[1.5em] leading-normal tracking-[-0.25px] md:text-[1.875em];
   }
 
   h2 {

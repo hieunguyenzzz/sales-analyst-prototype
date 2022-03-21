@@ -1,13 +1,11 @@
+import Hero from '@components/Hero'
+import Layout from '@components/Layout'
+import Image from '@components/UI/Image'
+import Link from '@components/UI/Link'
 import React from 'react'
-import Image from './UI/Image'
-import Link from './UI/Link'
-function Project({
-  heading = 'Recent Work',
-  description = `Ac viverra purus in in pretium arcu amet. Morbi nisl mauris sagittis
-    purus donec lobortis amet.`,
-  url = '#',
-  urlText = 'Read more',
-  projects = [
+
+function Journal({
+  items = [
     {
       title: 'La coess',
       tags: ['Packaging', 'Identity design'],
@@ -65,29 +63,17 @@ function Project({
   ],
 }) {
   return (
-    <div className="">
-      <div className="container grid gap-6 md:grid-cols-2 md:gap-y-10">
-        <h2>{heading}</h2>
-        <p className="mx-auto md:mt-0 md:max-w-[70%]">{description}</p>
-        {url && (
-          <div className="mx-auto w-full md:col-start-2 md:max-w-[70%]">
-            <a className="btn-animated group" href={url}>
-              {urlText}
-            </a>
-          </div>
-        )}
-      </div>
-      <ul
-        type="bottom"
-        key="block"
-        component={'ul'}
-        data-edit="ul"
-        className="container gap-10 mt-20 space-y-10 columns-1 md:columns-2 lg:gap-14 lg:space-y-14"
-      >
-        {projects.map((item, i) => {
+    <>
+      <Hero
+        heading="Our Journal"
+        description="Catch the latest news from the studio and get inspiration and tips from the team"
+      />
+      <div className="divider-section" />
+      <ul className="container gap-10 mt-20 space-y-10 columns-1 md:columns-2 lg:columns-3 lg:gap-14 lg:space-y-14">
+        {items.map((item, i) => {
           return (
             <li key={i} className=" group break-inside-avoid">
-              <Link href={`/project/${item.title}`}>
+              <Link href={`/post/${item.title}`}>
                 <a>
                   <div className="relative overflow-hidden">
                     <Image
@@ -104,16 +90,9 @@ function Project({
                   </div>
                   <div>
                     <div className="text-xl">{item.title}</div>
-                    <ul className="flex flex-wrap gap-1 text-xs text-base-content text-opacity-70">
-                      {item.tags.map((tag) => (
-                        <li key={tag} className="group">
-                          {tag}{' '}
-                          <span className="text-gray-300 group-last:hidden">
-                            •
-                          </span>{' '}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="flex flex-wrap gap-1 text-xs text-base-content text-opacity-70 ">
+                      {new Date().toDateString('en-US')}
+                    </div>
                   </div>
                 </a>
               </Link>
@@ -121,8 +100,8 @@ function Project({
           )
         })}
       </ul>
-    </div>
+    </>
   )
 }
-
-export default Project
+Journal.Layout = Layout
+export default Journal

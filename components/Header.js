@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useBoolean } from 'usehooks-ts'
 import Logo from './Logo'
+import Link from './UI/Link'
 
 const ToggleMenu = ({ id = 'header-menu' }) => {
   const { value, setValue, setTrue, setFalse, toggle } = useBoolean(false)
@@ -76,7 +77,7 @@ const Header = ({
       href: '#',
     },
   ],
-  transparent,
+  transparent = true,
 }) => {
   const trackerRef = useRef()
   const [show, setShow] = useState(false)
@@ -88,9 +89,10 @@ const Header = ({
     let lastKnownScrollPosition = 0
     let ticking = false
     function calc() {
-      setShow(
-        Boolean(lastKnownScrollPosition > trackerRef.current.clientHeight)
-      )
+      trackerRef.current &&
+        setShow(
+          Boolean(lastKnownScrollPosition > trackerRef.current.clientHeight)
+        )
     }
     function windowScrollHandler() {
       lastKnownScrollPosition = window.scrollY
@@ -112,18 +114,28 @@ const Header = ({
       ref={trackerRef}
       style={
         (show && {
-          '--header-bg-opacity': '1',
+          '--header-bg-opacity': '0.9',
         }) || {
           '--header-bg-opacity': '0',
         }
       }
-      className="min-h-header fixed z-50 w-full bg-base-100  text-base-content transition-colors focus-within:bg-opacity-100  md:bg-opacity-[var(--header-bg-opacity)]"
+      className="min-h-header fixed z-50 w-full bg-base-100 text-base-content transition-colors  focus-within:bg-opacity-100  md:bg-opacity-[var(--header-bg-opacity)]"
     >
-      <div className="container flex flex-wrap items-center justify-between w-full md:flex-row md:flex-nowrap">
+      <div
+        style={
+          (show && {
+            '--header-height': '80px',
+          }) ||
+          {}
+        }
+        className="container flex flex-wrap items-center justify-between w-full md:flex-row md:flex-nowrap"
+      >
         <div className="flex items-center justify-between flex-shrink-0 w-full gap-3 mx-auto md:w-auto">
-          <div className="relative h-header w-[140px] lg:w-[140px]">
-            <Logo />
-          </div>
+          <Link href="/">
+            <a className="relative h-header w-[140px] transition-[height] duration-500 ease-in-out will-change-scroll lg:w-[140px]">
+              <Logo />
+            </a>
+          </Link>
           <ToggleMenu />
         </div>
         <nav className="w-full md:flex-1 md:pl-container-offset">
@@ -133,7 +145,7 @@ const Header = ({
             id="header-menu"
             type="checkbox"
           ></input>
-          <div className="flex max-h-0 flex-col overflow-auto opacity-0 transition-all duration-700 ease-in-out peer-checked:h-view-height-fit peer-checked:max-h-[calc(100vh-var(--header-height))] peer-checked:opacity-100 md:h-auto   md:max-h-header md:flex-row md:items-center md:opacity-100 peer-checked:md:max-h-header xl:justify-end">
+          <div className="flex max-h-0 flex-col overflow-auto opacity-0 transition-all duration-700 ease-in-out peer-checked:h-view-height-fit peer-checked:max-h-[calc(100vh-var(--header-height))] peer-checked:opacity-100 md:h-auto md:max-h-header   md:flex-row md:items-center md:overflow-visible md:opacity-100 peer-checked:md:max-h-header xl:justify-end">
             <ul className="flex flex-col order-1 w-full text-sm uppercase truncate divide-neutral-content divide-opacity-30 border-neutral-content border-opacity-30 md:flex-row md:items-center md:justify-end md:divide-none md:border-y-0 xl:w-auto">
               {navItems.map(({ title, href, active }, i) => {
                 if (active) {
