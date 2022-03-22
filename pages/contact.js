@@ -1,6 +1,6 @@
 import Hero from '@components/Hero'
 import Layout from '@components/Layout'
-import Image from '@components/UI/Image'
+import Divider from '@components/UI/Divider'
 import React from 'react'
 
 export default function Contact({
@@ -18,27 +18,86 @@ export default function Contact({
         description={`You're alwas more than welcome to reach out to us regarding exciting new projects`}
       />
       <div className="divider-section" />
-      <div className="container">
-        <div className="ml-auto lg:mr-12 lg:max-w-2xl">
-          <Image ratio={image.height / image.width} src={image.src} />
-          <p className="mt-4 ">{image.alt}</p>
-        </div>
-        <div className="max-w-3xl mx-auto mt-24 space-y-12">
-          <h2 className="font-light leading-none h2 font-heading">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porta ut
-            nulla curabitur pulvinar tincidunt consequat etiam. Quis nisl orci
-            diam id gravida feugiat .
-          </h2>
-          <div className="gap-12 md:columns-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra ornare, eros dolor interdum. Tristique cum sit sit at
-            feugiat pharetra tincidunt in nibh. Tempor convallis venenatis
-            aenean sapien arcu, proin enim eget. Sed amet, aenean suspendisse
-            posuere malesuada faucibus odio quis. nulla, ut commodo diam libero
-            vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem
-            imperdiet. Nunc ut sem vitae risus tristique posuere.
+      <div className="container mt-12">
+        <div className="grid items-baseline gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <h2 className="h2">{'Studio info'}</h2>
+          <p className="whitespace-pre-line md:mt-0 lg:col-span-2">
+            {`Pannierstraße 64
+              12043
+              Berlininfo@something.com
+              +43 60 60 60 60`}
+          </p>
+          <div className="col-span-full">
+            <Divider />
           </div>
+          <h2 className="h2">{'Contact us'}</h2>
+          <form className="flex flex-col space-y-6 whitespace-pre-line md:mt-0 lg:col-span-2">
+            <div className="max-w-lg field Form_inputmain">
+              <div className="Form_inputbox">
+                <input
+                  required
+                  className="Form_input"
+                  type="email"
+                  name="customer[name]"
+                  id="CustomerName"
+                  autoComplete="name"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  placeholder="Your Name"
+                />
+                <label
+                  className="Form_label opacity-70"
+                  htmlFor="CustomerEmail"
+                >
+                  Your Name
+                </label>
+                <div className="Form_inputunderline" />
+              </div>
+            </div>
+            <div className="max-w-lg field Form_inputmain">
+              <div className="Form_inputbox">
+                <input
+                  required
+                  className="Form_input"
+                  type="email"
+                  name="customer[email]"
+                  id="CustomerEmail"
+                  autoComplete="email"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  placeholder="Your Email"
+                />
+                <label
+                  className="Form_label opacity-70"
+                  htmlFor="CustomerEmail"
+                >
+                  Your Email
+                </label>
+                <div className="Form_inputunderline" />
+              </div>
+            </div>
+            <div className="max-w-lg field Form_inputmain">
+              <div className="Form_inputbox">
+                <textarea
+                  type="text"
+                  placeholder="Your message"
+                  cols={4}
+                  className="Form_input"
+                />
+                <label
+                  className="Form_label opacity-70"
+                  htmlFor="CustomerEmail"
+                >
+                  Your Message
+                </label>
+                <div className="Form_inputunderline" />
+              </div>
+            </div>
+
+            <button className="btn-animated !mt-20 inline-block self-start">
+              Submit your message
+            </button>
+          </form>
         </div>
       </div>
     </>

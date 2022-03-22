@@ -27,11 +27,11 @@ function ServiceDetails({
 }) {
   return (
     <div className="container mt-12">
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid items-baseline gap-8 md:grid-cols-2 lg:grid-cols-3">
         <h2 className="h2">{heading}</h2>
         <p className="md:mt-0 lg:col-span-1">{description}</p>
         {url && (
-          <div className="mx-auto w-full md:col-start-2 lg:col-end-3">
+          <div className="w-full mx-auto md:col-start-2 lg:col-end-3">
             <a className="btn-animated group" href={url}>
               {urlText}
             </a>
@@ -50,7 +50,7 @@ function ServiceDetails({
                   </div>
                   <Divider className={'mb-8 mt-4'} />
                   <p>{description}</p>
-                  <a href={url} className="btn-animated mt-8 inline-block">
+                  <a href={url} className="inline-block mt-8 btn-animated">
                     {'Read more'}
                   </a>
                 </li>

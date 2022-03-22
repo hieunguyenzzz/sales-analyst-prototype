@@ -16,9 +16,17 @@ and branding studio`,
       )}
     >
       <div className="container max-w-5xl ">
-        <h1 className="h1">{heading}</h1>
-        <p className="">{description}</p>
-        {time && <div className="mt-[1em] text-sm opacity-60">{time}</div>}
+        <h1 className="ease-in-out h1 animate-fadeInUp animate-delay-100">
+          {heading}
+        </h1>
+        <p className="ease-in-out animate-fadeInUp animate-delay-300">
+          {description}
+        </p>
+        {time && (
+          <div className="mt-[1em] animate-fadeInUp text-sm opacity-60 ease-in-out animate-delay-500">
+            {time}
+          </div>
+        )}
       </div>
     </div>
   )

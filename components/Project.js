@@ -77,13 +77,7 @@ function Project({
           </div>
         )}
       </div>
-      <ul
-        type="bottom"
-        key="block"
-        component={'ul'}
-        data-edit="ul"
-        className="container mt-20 columns-1 gap-10 space-y-10 md:columns-2 lg:gap-14 lg:space-y-14"
-      >
+      <ul className="container gap-10 mt-20 space-y-10 columns-1 md:columns-2 lg:gap-14 lg:space-y-14">
         {projects.map((item, i) => {
           return (
             <li key={i} className=" group break-inside-avoid">
@@ -99,8 +93,8 @@ function Project({
                       ratio={item.img.height / item.img.width}
                     />
                   </div>
-                  <div className="relative my-4 mb-3 w-full border-b">
-                    <div className="absolute left-0 top-full h-px w-0 bg-primary transition-all duration-700 ease-in-out group-hover:w-full"></div>
+                  <div className="relative w-full my-4 mb-3 border-b">
+                    <div className="absolute left-0 w-0 h-px transition-all duration-700 ease-in-out top-full bg-primary group-hover:w-full"></div>
                   </div>
                   <div>
                     <div className="text-xl">{item.title}</div>

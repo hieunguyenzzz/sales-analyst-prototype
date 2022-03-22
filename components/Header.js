@@ -58,23 +58,23 @@ const Header = ({
     {
       active: true,
       title: 'Work',
-      href: '#',
+      href: '/work',
     },
     {
       title: 'Service',
-      href: '#',
+      href: '/services',
     },
     {
       title: 'About',
-      href: '#',
+      href: '/about',
     },
     {
       title: 'Journal',
-      href: '#',
+      href: '/journal',
     },
     {
       title: 'Contact',
-      href: '#',
+      href: '/contact',
     },
   ],
   transparent = true,
@@ -154,12 +154,11 @@ const Header = ({
                       key={i}
                       className="order-1 md:flex md:items-center md:text-center"
                     >
-                      <a
-                        href={href}
-                        className="flex items-center px-0 py-5 text-xl leading-6 capitalize borde bg-opacity-10 text-primary md:h-header md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10"
-                      >
-                        {title}
-                      </a>
+                      <Link href={href}>
+                        <a className="flex items-center px-0 py-5 text-xl leading-6 capitalize borde bg-opacity-10 text-primary md:h-header md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10">
+                          {title}
+                        </a>
+                      </Link>
                     </li>
                   )
                 }
@@ -168,12 +167,14 @@ const Header = ({
                     key={i}
                     className="order-1 md:flex md:items-center md:text-center"
                   >
-                    <a
-                      href={href}
-                      className="flex items-center px-0 py-5 text-xl leading-6 capitalize borde bg-opacity-10 md:h-header md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10"
-                    >
-                      {title}
-                    </a>
+                    <Link href={href}>
+                      <a
+                        href={href}
+                        className="flex items-center px-0 py-5 text-xl leading-6 capitalize borde bg-opacity-10 md:h-header md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10"
+                      >
+                        {title}
+                      </a>
+                    </Link>
                   </li>
                 )
               })}
