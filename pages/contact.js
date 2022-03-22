@@ -32,12 +32,12 @@ export default function Contact({
           </div>
           <h2 className="h2">{'Contact us'}</h2>
           <form className="flex flex-col space-y-6 whitespace-pre-line md:mt-0 lg:col-span-2">
-            <div className="max-w-lg field Form_inputmain">
+            <div className="field Form_inputmain lg:max-w-lg">
               <div className="Form_inputbox">
                 <input
                   required
                   className="Form_input"
-                  type="email"
+                  type="text"
                   name="customer[name]"
                   id="CustomerName"
                   autoComplete="name"
@@ -54,7 +54,7 @@ export default function Contact({
                 <div className="Form_inputunderline" />
               </div>
             </div>
-            <div className="max-w-lg field Form_inputmain">
+            <div className="field Form_inputmain lg:max-w-lg">
               <div className="Form_inputbox">
                 <input
                   required
@@ -76,13 +76,13 @@ export default function Contact({
                 <div className="Form_inputunderline" />
               </div>
             </div>
-            <div className="max-w-lg field Form_inputmain">
+            <div className="field Form_inputmain lg:max-w-lg">
               <div className="Form_inputbox">
                 <textarea
                   type="text"
                   placeholder="Your message"
-                  cols={4}
-                  className="Form_input"
+                  cols={6}
+                  className="Form_input min-h-[80px]"
                 />
                 <label
                   className="Form_label opacity-70"

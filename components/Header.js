@@ -148,20 +148,6 @@ const Header = ({
           <div className="flex max-h-0 flex-col overflow-auto opacity-0 transition-all duration-700 ease-in-out peer-checked:h-view-height-fit peer-checked:max-h-[calc(100vh-var(--header-height))] peer-checked:opacity-100 md:h-auto md:max-h-header   md:flex-row md:items-center md:overflow-visible md:opacity-100 peer-checked:md:max-h-header xl:justify-end">
             <ul className="flex flex-col order-1 w-full text-sm uppercase truncate divide-neutral-content divide-opacity-30 border-neutral-content border-opacity-30 md:flex-row md:items-center md:justify-end md:divide-none md:border-y-0 xl:w-auto">
               {navItems.map(({ title, href, active }, i) => {
-                if (active) {
-                  return (
-                    <li
-                      key={i}
-                      className="order-1 md:flex md:items-center md:text-center"
-                    >
-                      <Link href={href}>
-                        <a className="flex items-center px-0 py-5 text-xl leading-6 capitalize borde bg-opacity-10 text-primary md:h-header md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10">
-                          {title}
-                        </a>
-                      </Link>
-                    </li>
-                  )
-                }
                 return (
                   <li
                     key={i}
@@ -170,7 +156,7 @@ const Header = ({
                     <Link href={href}>
                       <a
                         href={href}
-                        className="flex items-center px-0 py-5 text-xl leading-6 capitalize borde bg-opacity-10 md:h-header md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10"
+                        className="flex items-center px-0 py-5 text-xl leading-6 capitalize borde bg-opacity-10 focus:text-primary md:h-header md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10"
                       >
                         {title}
                       </a>

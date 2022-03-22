@@ -42,7 +42,7 @@ function Footer({
           </ul>
         </div>
       </div>
-      <div className="justify-between pb-16 mt-16 lg:flex">
+      <div className="grid justify-between gap-4 pb-16 mt-16 lg:flex lg:grid-cols-3 lg:gap-8">
         {['Powered by Webflow', 'info@something.com', '+49 55 55 55 55'].map(
           (string) => {
             return (
