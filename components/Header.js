@@ -156,7 +156,7 @@ const Header = ({
                     <Link href={href}>
                       <a
                         href={href}
-                        className="flex items-center px-0 py-5 text-xl leading-6 capitalize borde bg-opacity-10 focus:text-primary md:h-header md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10"
+                        className="flex items-center px-0 py-5 text-xl leading-6 capitalize rounded-lg borde bg-opacity-10 focus:text-primary md:bg-opacity-0 md:bg-none md:px-3 md:text-center md:hover:bg-base-content md:hover:bg-opacity-10"
                       >
                         {title}
                       </a>

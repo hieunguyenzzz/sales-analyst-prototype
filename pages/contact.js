@@ -36,7 +36,7 @@ export default function Contact({
               <div className="Form_inputbox">
                 <input
                   required
-                  className="Form_input"
+                  className="bg-transparent Form_input"
                   type="text"
                   name="customer[name]"
                   id="CustomerName"
@@ -58,7 +58,7 @@ export default function Contact({
               <div className="Form_inputbox">
                 <input
                   required
-                  className="Form_input"
+                  className="bg-transparent Form_input"
                   type="email"
                   name="customer[email]"
                   id="CustomerEmail"
@@ -82,7 +82,7 @@ export default function Contact({
                   type="text"
                   placeholder="Your message"
                   cols={6}
-                  className="Form_input min-h-[80px]"
+                  className="Form_input min-h-[80px] bg-transparent"
                 />
                 <label
                   className="Form_label opacity-70"
