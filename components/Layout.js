@@ -29,6 +29,7 @@ function Transition({ content, children }) {
 function Layout({ children }) {
   return (
     <div
+      className="bg-cover"
       style={{
         backgroundImage:
           'url(https://d33wubrfki0l68.cloudfront.net/d1bd1b1aaa4f9ca18269a3ef4fddfb560b29e5a7/16387/assets/lander/background.svg)',
