@@ -40,6 +40,7 @@
     "react-redux": "^7.2.6",
     "react-shortcuts": "^2.1.0",
     "redux": "^4.1.2",
+    "smoothscroll-polyfill": "^0.4.4",
     "swr": "^1.2.2",
     "usehooks-ts": "^2.4.2"
   },

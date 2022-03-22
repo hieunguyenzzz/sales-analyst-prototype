@@ -7,14 +7,14 @@ const ProjectSlug = ({ data }) => {
   return (
     <>
       <Hero heading={data.title} time={new Date().toDateString()} />
-      <div className="container h-px mt-10 divider before:h-px after:h-px md:mb-16 md:mt-36" />
+      <div className="divider-section" />
       <div className="container">
         <Image
           ratio={1067 / 1600}
           src="https://uploads-ssl.webflow.com/61602163503ce327d1bc7a7b/616322a4bbf68f70f013b959_team-fredi-ufcr9mjVeM0-unsplash-min.jpg"
         ></Image>
-        <div className="grid gap-8 mt-24 lg:grid-cols-3 ">
-          <div className="mx-auto prose prose-headings:font-heading prose-headings:font-light prose-headings:tracking-wide lg:col-start-2 lg:col-end-4 lg:mx-0">
+        <div className="mt-24 grid gap-8 lg:grid-cols-3 ">
+          <div className="prose mx-auto prose-headings:font-heading prose-headings:font-light prose-headings:tracking-wide lg:col-start-2 lg:col-end-4 lg:mx-0">
             <h2>Qui quaerat eos minima provident.</h2>
             <p>
               Pariatur dolore est dicta ab enim aperiam nihil doloribus

@@ -10,7 +10,7 @@ export default function Home() {
         description={`Over the years, we have solved ​​different challenges 
         in collaboration with our customers`}
       />
-      <div className="container h-px mt-10 divider before:h-px after:h-px md:mb-16 md:mt-36" />
+      <div className="divider-section" />
       <Project />
     </>
   )

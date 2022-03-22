@@ -7,11 +7,11 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="container h-px mt-10 divider before:h-px after:h-px md:mb-16 md:mt-36" />
+      <div className="divider-section" />
       <Project />
-      <div className="container h-px mt-10 divider before:h-px after:h-px md:mb-16 md:mt-36" />
+      <div className="divider-section" />
       <Services />
-      <div className="container h-px mt-10 divider before:h-px after:h-px md:mb-16 md:mt-36" />
+      <div className="divider-section" />
       <Stats />
     </>
   )

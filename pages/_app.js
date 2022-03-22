@@ -1,6 +1,8 @@
 import DefaultLayout from '@components/Layout'
+import Polyfill from '@components/Polyfill'
 import Head from 'next/head'
 import '../styles/globals.css'
+
 function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || DefaultLayout
   return (
@@ -8,6 +10,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="preload" as="image/svg+xml" href={'./sprite.svg'} />
       </Head>
+
       {Layout ? (
         <Layout>
           <Component {...pageProps} />
@@ -15,6 +18,7 @@ function MyApp({ Component, pageProps }) {
       ) : (
         <Component {...pageProps} />
       )}
+      <Polyfill />
     </>
   )
 }

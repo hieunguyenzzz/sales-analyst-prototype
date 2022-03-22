@@ -2,11 +2,7 @@
 @tailwind components;
 @layer components {
   .divider-section {
-    @apply container h-px mt-16 mb-10 divider before:h-px after:h-px md:mb-16 md:mt-36;
-    &.divider-section-noborder::before,
-    &.divider-section-noborder::after {
-      --tw-bg-opacity: 0;
-    }
+    @apply container mt-10 h-px before:block before:border-b  before:content-[''] md:mb-16 md:mt-36;
   }
   .btn-animated {
     @apply relative px-6;
