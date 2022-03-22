@@ -10,6 +10,7 @@ and branding studio`,
 }) {
   return (
     <div
+      onTransitionEnd={() => alert(123)}
       className={classNames(
         'flex w-full items-center justify-center py-24',
         className

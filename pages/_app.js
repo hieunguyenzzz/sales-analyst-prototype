@@ -1,8 +1,8 @@
+import DefaultLayout from '@components/Layout'
 import Head from 'next/head'
 import '../styles/globals.css'
-
 function MyApp({ Component, pageProps }) {
-  const Layout = Component.Layout
+  const Layout = Component.Layout || DefaultLayout
   return (
     <>
       <Head>
